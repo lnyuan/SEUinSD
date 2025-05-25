@@ -1,4 +1,4 @@
-# Stable Diffusion Fault Injection
+# Stable Diffusion Fault Injection and Detection
 
 This repository contains the code for fault injection experiments on Stable Diffusion models, as described in [PAPER TITLE]. The code implements a custom `StableDiffusionPipeline` and performs fault injection in the UNet components to study their impact on image generation quality.
 
