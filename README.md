@@ -1,3 +1,0 @@
-# SEUinSD
-
-### Dataset generation
