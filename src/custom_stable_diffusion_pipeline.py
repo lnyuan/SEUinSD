@@ -226,12 +226,12 @@ class CustomStableDiffusionPipeline(StableDiffusionPipeline):
                     if user_error:
                         user_xt_name = f"P{user_prompt_idx}_x_t_{user_error_type}_iter{i}"
                         user_latents = latents.cpu()
-                        torch.save(user_latents, f'./error_detect/Unet/{user_folder_name}/{user_xt_name}.pth')
+                        torch.save(user_latents, f'./dataset/Unet/{user_folder_name}/{user_xt_name}.pth')
                         logger.info(f"Saved {user_xt_name}.pth")
                     else:
                         user_xt_name = f"P{user_prompt_idx}_x_t_iter{i}_test{user_test_idx}"
                         user_latents = latents.cpu()
-                        torch.save(user_latents, f'./error_detect/Unet/{user_folder_name}/{user_xt_name}.pth')
+                        torch.save(user_latents, f'./dataset/Unet/{user_folder_name}/{user_xt_name}.pth')
                         logger.info(f"Saved {user_xt_name}.pth")
 
                 latent_model_input = torch.cat([latents] * 2) if do_classifier_free_guidance else latents
@@ -256,14 +256,14 @@ class CustomStableDiffusionPipeline(StableDiffusionPipeline):
                                 user_noise_pred_uncond_name = f"P{user_prompt_idx}_noise_pred_uncond_{user_error_type}_iter{i}"
                                 user_noise_pred_uncond = noise_pred_uncond.cpu()
                                 torch.save(user_noise_pred_uncond,
-                                           f'./error_detect/Unet/{user_folder_name}/{user_noise_pred_uncond_name}.pth')
+                                           f'./dataset/Unet/{user_folder_name}/{user_noise_pred_uncond_name}.pth')
                                 logger.info(f"Saved {user_noise_pred_uncond_name}.pth")
                             if 'ut_text' in user_save_type:
                                 user_folder_name = 'noise_pred_text' if user_fixed_latents else 'noise_pred_text_unfixed'
                                 user_noise_pred_text_name = f"P{user_prompt_idx}_noise_pred_text_{user_error_type}_iter{i}"
                                 user_noise_pred_text = noise_pred_text.cpu()
                                 torch.save(user_noise_pred_text,
-                                           f'./error_detect/Unet/{user_folder_name}/{user_noise_pred_text_name}.pth')
+                                           f'./dataset/Unet/{user_folder_name}/{user_noise_pred_text_name}.pth')
                                 logger.info(f"Saved {user_noise_pred_text_name}.pth")
                         else:
                             if 'ut_null' in user_save_type:
@@ -271,14 +271,14 @@ class CustomStableDiffusionPipeline(StableDiffusionPipeline):
                                 user_noise_pred_uncond_name = f"P{user_prompt_idx}_noise_pred_uncond_iter{i}_test{user_test_idx}"
                                 user_noise_pred_uncond = noise_pred_uncond.cpu()
                                 torch.save(user_noise_pred_uncond,
-                                           f'./error_detect/Unet/{user_folder_name}/{user_noise_pred_uncond_name}.pth')
+                                           f'./dataset/Unet/{user_folder_name}/{user_noise_pred_uncond_name}.pth')
                                 logger.info(f"Saved {user_noise_pred_uncond_name}.pth")
                             if 'ut_text' in user_save_type:
                                 user_folder_name = 'noise_pred_text' if user_fixed_latents else 'noise_pred_text_unfixed'
                                 user_noise_pred_text_name = f"P{user_prompt_idx}_noise_pred_text_iter{i}_test{user_test_idx}"
                                 user_noise_pred_text = noise_pred_text.cpu()
                                 torch.save(user_noise_pred_text,
-                                           f'./error_detect/Unet/{user_folder_name}/{user_noise_pred_text_name}.pth')
+                                           f'./dataset/Unet/{user_folder_name}/{user_noise_pred_text_name}.pth')
                                 logger.info(f"Saved {user_noise_pred_text_name}.pth")
 
                 if do_classifier_free_guidance and guidance_rescale > 0.0:
@@ -291,13 +291,13 @@ class CustomStableDiffusionPipeline(StableDiffusionPipeline):
                         user_noise_pred_name = f"P{user_prompt_idx}_noise_pred_{user_error_type}_iter{i}"
                         user_noise_pred = noise_pred.cpu()
                         torch.save(user_noise_pred,
-                                   f'./error_detect/Unet/{user_folder_name}/{user_noise_pred_name}.pth')
+                                   f'./dataset/Unet/{user_folder_name}/{user_noise_pred_name}.pth')
                         logger.info(f"Saved {user_noise_pred_name}.pth")
                     else:
                         user_noise_pred_name = f"P{user_prompt_idx}_noise_pred_iter{i}_test{user_test_idx}"
                         user_noise_pred = noise_pred.cpu()
                         torch.save(user_noise_pred,
-                                   f'./error_detect/Unet/{user_folder_name}/{user_noise_pred_name}.pth')
+                                   f'./dataset/Unet/{user_folder_name}/{user_noise_pred_name}.pth')
                         logger.info(f"Saved {user_noise_pred_name}.pth")
 
                 latents = self.scheduler.step(
@@ -322,12 +322,12 @@ class CustomStableDiffusionPipeline(StableDiffusionPipeline):
             if user_error:
                 user_xf_name = f"P{user_prompt_idx}_x_f_{user_error_type}"
                 user_latents = latents.cpu()
-                torch.save(user_latents, f'./error_detect/Unet/x_t/{user_xf_name}.pth')
+                torch.save(user_latents, f'./dataset/Unet/x_t/{user_xf_name}.pth')
                 logger.info(f"Saved {user_xf_name}.pth")
             else:
                 user_xf_name = f"P{user_prompt_idx}_x_f"
                 user_latents = latents.cpu()
-                torch.save(user_latents, f'./error_detect/Unet/x_t/{user_xf_name}.pth')
+                torch.save(user_latents, f'./dataset/Unet/x_t/{user_xf_name}.pth')
                 logger.info(f"Saved {user_xf_name}.pth")
 
         if output_type != "latent":
