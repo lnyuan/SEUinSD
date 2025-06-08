@@ -30,9 +30,9 @@ This repository contains the code for fault injection experiments and fault dete
    pip install -r classifier/requirements.txt
    ```
 
-3. **Download the Stable Diffusion model**:
+3. **Download the Stable Diffusion model and Clip model**:
 
-   - Place the `stable-diffusion-2-1` model in the root directory or update `model_id` in `src/main.py`.
+   - Place the `stable-diffusion-2-1` and 'clip-vit-base-patch16' model in the root directory or update `model_id` in `src/main.py`.
    - Alternatively, use a Hugging Face model ID (e.g., `stabilityai/stable-diffusion-2-1`).
 
 4. **Provide required datasets**:
@@ -166,7 +166,6 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## Notes
 
-- **CLIP Module**: The CLIP module is a placeholder. Replace with a CLIP implementation (e.g., `open_clip`) for computing CLIP scores.
 - **Disk Space**: Ensure sufficient disk space for outputs in `error_detect/`, `error_detect_results/`, and `Images_error/`.
 - **Fault Injection Dependencies**: Fault injection requires `injectorbit` and `injector0`. Contact the authors for details if unavailable.
 - **Fault Detection Datasets**: The classifier assumes preprocessed data in `dataset/`. Users must generate these datasets using the fault injection pipeline or obtain them from the authors.
