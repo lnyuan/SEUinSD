@@ -37,7 +37,7 @@ This repository contains the code for fault injection experiments and fault dete
 
 4. **Provide required datasets**:
 
-   - Copy `data_erin.npy` to the `prompts/` directory for fault injection experiments.
+   - Copy `./dataset/data_erin.npy` to the `prompts/` directory for fault injection experiments.
    - Place fault detection datasets in the `dataset/` directory (see Fault Detection section below).
 
 ## Usage
