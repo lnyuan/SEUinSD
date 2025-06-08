@@ -1,6 +1,6 @@
 # Stable Diffusion Fault Injection and Detection
 
-This repository contains the code for fault injection experiments and fault detection in Stable Diffusion models, as described in [PAPER TITLE]. The code implements a custom `StableDiffusionPipeline` for fault injection in UNet components to study their impact on image generation quality and provides a classifier module to detect faults using intermediate outputs and CLIP scores.
+This repository contains the code for fault injection experiments and fault detection in Stable Diffusion models, as described in [Dependability Evaluation and error toleration of Stable Diffusion with Soft Errors on the Model Parameters]. The code implements a custom `StableDiffusionPipeline` for fault injection in UNet components to study their impact on image generation quality and provides a classifier module to detect faults using intermediate outputs and CLIP scores.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ python src/main.py
 This will:
 
 - Load the custom pipeline and Stable Diffusion model.
-- Perform fault injection in UNet's `down_blocks.attentions`.
+- Perform fault injection in UNet.
 - Save intermediate outputs to `error_detect/` and generated images to `Images_error/`.
 - Log results to `error_detect/main_output_log_[TIMESTAMP].txt`.
 
